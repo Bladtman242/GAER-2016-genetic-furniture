@@ -44,6 +44,8 @@ object Environment {
 }
 
 object Genetic {
+  def evolve[A] (env: Environment[A], popSize: Int, genSize: Int) = nApply(env.seedPop(genSize), env.evoProcess, popSize)
+
   // makes a new generation of (approx) the same size, using crossover on the best half of the population, and
   // mutations on mutPct percent of the new population.
   def constantSizeCrossover[A] (population: List[A], env: Environment[A], mutPct: Int) : List[A] = {

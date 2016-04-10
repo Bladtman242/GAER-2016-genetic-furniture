@@ -10,6 +10,9 @@ object GeneticFurniture {
     val initPop = env.seedPop(100)
 
     print("Best of initial population (value, genome): ")
+    // Does not use the evolve function because 1: I want to print the inital pop,
+    // and 2: this hasn't been abstracted properly, and 3: seedPop is not
+    // referentially transparent (because reasons)
     println(initPop.map((x :List[Char]) => (env.fitness(x), x)).maxBy(_._1))
 
     val finalPop = nApply(initPop, env.evoProcess, 200)
